@@ -1,8 +1,9 @@
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
 body {
-	background-color: #AA6839;
+  background-color: #AA6839;
   text-align: center;
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: 16;
 }
 
 .main{
@@ -10,12 +11,25 @@ body {
 	padding: 25px;
 	max-width: 600px;
 	background-color: #D28B58;
-	border: 2px solid #824920;
+	border: 3px solid #824920;
 	border-radius: 10px;
 }
 
-h1.pixel{
-	padding: 15px;
+.pixel{
+	text-indent: 25px;
+	position: relative;
+	padding: 5px;
  	text-align: left;
-	border-bottom: 2px solid #824920;;
+ 	letter-spacing: .5em;
+	border-bottom: 2px solid #824920;
+}
+
+.accent{
+	height: 40px;
+	width: 40px;
+	top:0px;
+	left:0px;
+	position:absolute;
+	border-left: 2px solid #824920;
+	border-top:2px solid #824920;
 }
