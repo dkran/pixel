@@ -13,6 +13,7 @@ router.get('/r/:img', function(req, res) {
 	var imgId = req.param('img');
 	imgId = imgId.substr(0,(imgId.length-4));
 	console.log(req.headers);
+	console.log(req.connection);
 	console.log(ip);
 	res.type('image/gif');
 	res.end(pixel, 'binary');
