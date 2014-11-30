@@ -12,6 +12,7 @@ router.get('/', function(req, res) {
 
 router.get('/r/:img', function(req, res) {
 	var reqData = {};
+	var ts = new Date();
 	var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
 	var imgId = req.param('img');
 	imgId = imgId.substr(0,(imgId.length-4));
@@ -22,6 +23,7 @@ router.get('/r/:img', function(req, res) {
 		else{
 			reqData = {
 				'id': imgId,
+				'time': ts.toUTCString(),
 				'referer': req.headers['referer'],
 				'user-agent': req.headers['user-agent'],
 				'city': geodata.city.names.en,
