@@ -7,7 +7,7 @@ var cities = mmdbreader.openSync(__dirname + '/../data/GeoLite2-City.mmdb');
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Pixel' });
 });
 
 router.get('/r/:img', function(req, res) {
