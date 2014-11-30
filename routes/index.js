@@ -25,7 +25,7 @@ router.get('/r/:img', function(req, res) {
 				'referer': req.headers['referer'],
 				'user-agent': req.headers['user-agent'],
 				'city': geodata.city.names.en,
-				'state': geodata.subdivisions.names.en,
+				'state': geodata.subdivisions[0].names.en,
 				'state_iso': geodata.subdivisions.iso_code,
 				'country': geodata.country.names.en,
 				'country_iso': geodata.country.iso_code 
