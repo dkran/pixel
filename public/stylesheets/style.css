@@ -1,8 +1,21 @@
 body {
+	background-color: #AA6839;
+  text-align: center;
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+.main{
+	margin: auto;
+	padding: 25px;
+	max-width: 600px;
+	background-color: #D28B58;
+	border: 2px solid #824920;
+	border-radius: 10px;
+}
+
+h1.pixel{
+	padding: 15px;
+ 	text-align: left;
+	border-bottom: 2px solid #824920;;
 }
