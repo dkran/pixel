@@ -5,7 +5,7 @@ var pixel = fs.readFileSync(__dirname + '/../data/pixel.gif');
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Pixel' });
 });
 
 router.get('/r/:img', function(req, res) {
