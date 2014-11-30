@@ -26,11 +26,11 @@ router.get('/r/:img', function(req, res) {
 				'time': ts.toUTCString(),
 				'referer': req.headers['referer'],
 				'user-agent': req.headers['user-agent'],
-				'city': geodata.city.names.en,
-				'state': geodata.subdivisions[0].names.en,
-				'state_iso': geodata.subdivisions[0].iso_code,
-				'country': geodata.country.names.en,
-				'country_iso': geodata.country.iso_code 
+				'city': (geodata.city.names.en || null),
+				'state': (geodata.subdivisions[0].names.en || null),
+				'state_iso': (geodata.subdivisions[0].iso_code || null),
+				'country': (geodata.country.names.en || null),
+				'country_iso': (geodata.country.iso_code || null)
 			};
 			console.log(reqData);
 		}
