@@ -30,7 +30,7 @@ router.get('/r/:img', function(req, res) {
 				'country': (geodata.country.names.en || null),
 				'country_iso': (geodata.country.iso_code || null)
 			};
-			console.log(err);
+			console.log(reqData);
 		}
 		else{
 			reqData = {
