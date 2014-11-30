@@ -43,7 +43,7 @@ router.get('/r/:img', function(req, res) {
 			console.log(reqData);
 		}
 		});
-
+	console.log(req.headers);
 	res.type('image/gif');
 	res.end(pixel, 'binary');
 });
