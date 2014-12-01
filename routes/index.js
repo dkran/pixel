@@ -54,7 +54,7 @@ router.post('/new' function(req, res){
 		'id': 123,
 		'location': '/r/123.gif'
 	});
-})
+});
 
 
 
