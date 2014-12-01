@@ -47,6 +47,15 @@ router.get('/r/:img', function(req, res) {
 	res.end(pixel, 'binary');
 });
 
+router.post('/new' function(req, res){
+	//req.body.userid = the user id.  etc.
+
+	res.json({
+		'id': 123,
+		'location': '/r/123.gif'
+	});
+})
+
 
 
 module.exports = router;
