@@ -47,7 +47,7 @@ router.get('/r/:img', function(req, res) {
 	res.end(pixel, 'binary');
 });
 
-router.post('/new' function(req, res){
+router.post('/new', function(req, res){
 	//req.body.userid = the user id.  etc.
 
 	res.json({
