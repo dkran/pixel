@@ -4,8 +4,8 @@ var favicon = require('static-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
-var routes = require('./routes/index');
+var tracker = require('./lib/pixel-track')
+var indexRoute = require('./routes/index');
 var api = require('./routes/api/index');
 
 var app = express();
@@ -23,7 +23,7 @@ app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
+app.use('/:img', tracker.requestHandler);
 app.use('/api', api);
 
 /// catch 404 and forward to error handler
