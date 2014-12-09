@@ -24,8 +24,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-app.use('/api', api);
-app.use('/:img', tracker.requestHandler);
+app.use('/api', api);//tracker.requestHandler
+app.get(/^\/(([0-9a-zA-Z\._-])+.(gif|GIF))$/, tracker.requestHandler);
 
 
 /// catch 404 and forward to error handler
