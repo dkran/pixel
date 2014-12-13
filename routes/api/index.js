@@ -10,8 +10,10 @@ app.post('/new', function(req, res){
 	res.status(201).json({
 		'id': 123,
 		'location': '/r/123.gif'
-	}).end;
+	}).end()
 });
+
+app.get('/users', tracker.listUsers)
 
 tracker.on('visit',function(reqData){
 	console.log(reqData);
