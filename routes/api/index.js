@@ -1,7 +1,7 @@
 var app = require('express')();
 var tracker = require('../../lib/pixel-track');
 var BodyParser = require('body-parser');
-
+var jsonParse = BodyParser.json();
 
 app.get(/^\/r\/([\w._-]+.gif)$/i, tracker.requestHandler);
 
@@ -14,8 +14,9 @@ app.post('/new', function(req, res){
 	}).end()
 });
 
-app.get('/users', tracker.listUsers)
-app.get('/users/:id', tracker.listUsers)
+app.get('/users', tracker.getUsers)
+app.get('/users/:id', tracker.getUsers)
+app.post('/users/new', jsonParse, tracker.newUser)
 
 tracker.on('visit',function(reqData){
 	console.log(reqData);
