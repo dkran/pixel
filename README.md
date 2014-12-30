@@ -1,7 +1,7 @@
 #pixel
 =====
 ##What is this?
-**Note: I don't push all my npm modules up here.  you'll have to npm install, you lazy folks.**
+**Note: I don't push all my npm modules up here.  you'll have to `npm install`, you lazy folks.**
 
 pixel is a node.js pixel tracking server.  It (will generate unique) pixels and collect information on view times and whatnot.
 
