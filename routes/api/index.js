@@ -14,9 +14,12 @@ app.post('/new', function(req, res){
 	}).end()
 });
 
+
 app.get('/users', tracker.getUsers)
 app.get('/users/:id', tracker.getUsers)
+app.get('/clear/:id', tracker.clearVisits)
 app.post('/users/new', jsonParse, tracker.newUser)
+
 
 tracker.on('visit',function(reqData){
 	console.log(reqData);
