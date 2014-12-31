@@ -6,6 +6,7 @@ var get_ip = require('ipware')().get_ip;
 
 app.use(function(req,res,next){
 	req.ip_info = get_ip(req)
+	console.log(req.ip_info)
 	next();
 })
 
