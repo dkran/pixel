@@ -2,6 +2,13 @@ var app = require('express')();
 var tracker = require('../../lib/pixel-track');
 var BodyParser = require('body-parser');
 var jsonParse = BodyParser.json();
+var get_ip = require('ipware')().get_ip;
+
+app.use(function(req,res,next){
+	req.ip_info = get_ip(req)
+	next();
+})
+
 
 app.get(/^\/r\/([\w._-]+.gif)$/i, tracker.requestHandler);
 app.get('/users', tracker.getUsers)
