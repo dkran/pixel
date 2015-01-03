@@ -2,11 +2,17 @@ var app = require('express')();
 var tracker = require('../../lib/pixel-track');
 var BodyParser = require('body-parser');
 var jsonParse = BodyParser.json();
-var get_ip = require('ipware')().get_ip;
 
 app.use(function(req,res,next){
-	req.ip_info = get_ip(req)
-	console.log(req.ip_info)
+	req.real_ip = req.headers["x-forwarded-for"];
+	  if(req.real_ip){
+	    var list = req.real_ip.split(",");
+	    console.log("list: " + list)
+	    req.real_ip = list[list.length-1];
+	    console.log("req.real_ip: " + req.real_ip)
+	  } else {
+	    req.real_ip = req.connection.remoteAddress;
+	  }
 	next();
 })
 
