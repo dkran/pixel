@@ -1,17 +1,30 @@
 var app = require('express')();
 var tracker = require('../../lib/pixel-track');
-//var BodyParser = require('body-parser');
+var BodyParser = require('body-parser');
+var jsonParse = BodyParser.json();
+
+app.use(function(req,res,next){
+	req.real_ip = req.headers["x-forwarded-for"];
+	  if(req.real_ip){
+	    var list = req.real_ip.split(",");
+	    console.log("list: " + list)
+	    req.real_ip = list[list.length-1];
+	    console.log("req.real_ip: " + req.real_ip)
+	  } else {
+	    req.real_ip = req.connection.remoteAddress;
+	  }
+	next();
+})
+
 
 app.get(/^\/r\/([\w._-]+.gif)$/i, tracker.requestHandler);
+app.get('/users', tracker.getUsers)
+app.get('/users/:id', tracker.getUsers)
+app.get('/clear/:id', tracker.clearVisits)
+app.get('/v/:id', tracker.listVisits)
+app.get('/v/',tracker.listVisits)
+app.post('/users/new', jsonParse, tracker.newUser)
 
-app.post('/new', function(req, res){
-	//req.body.userid = the user id.  etc.
-
-	res.status(201).json({
-		'id': 123,
-		'location': '/r/123.gif'
-	}).end;
-});
 
 tracker.on('visit',function(reqData){
 	console.log(reqData);
