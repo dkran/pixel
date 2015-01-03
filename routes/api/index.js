@@ -4,6 +4,8 @@ var BodyParser = require('body-parser');
 var jsonParse = BodyParser.json();
 
 app.use(function(req,res,next){
+	// This middleware attempts to find the real request ip and log it at req.real_ip.  Does a pretty good job?
+
 	req.real_ip = req.headers["x-forwarded-for"];
 	  if(req.real_ip){
 	    var list = req.real_ip.split(",");
